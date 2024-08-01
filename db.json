@@ -1,0 +1,704 @@
+{
+  "upgrades": [
+    {
+      "id": "1",
+      "name": "ceo",
+      "category": "pr&team"
+    },
+    {
+      "id": "2",
+      "name": "marketing",
+      "category": "pr&team"
+    },
+    {
+      "id": "3",
+      "name": "it team",
+      "category": "pr&team"
+    },
+    {
+      "id": "4",
+      "name": "support team",
+      "category": "pr&team"
+    },
+    {
+      "id": "5",
+      "name": "hamsterbook",
+      "category": "pr&team"
+    },
+    {
+      "id": "6",
+      "name": "hamstertube",
+      "category": "pr&team"
+    },
+    {
+      "id": "7",
+      "name": "x",
+      "category": "pr&team"
+    },
+    {
+      "id": "8",
+      "name": "cointelegraph",
+      "category": "pr&team"
+    },
+    {
+      "id": "9",
+      "name": "hamstergram",
+      "category": "pr&team"
+    },
+    {
+      "id": "10",
+      "name": "tiktok",
+      "category": "pr&team"
+    },
+    {
+      "id": "11",
+      "name": "coindesk",
+      "category": "pr&team"
+    },
+    {
+      "id": "12",
+      "name": "influencers",
+      "category": "pr&team"
+    },
+    {
+      "id": "13",
+      "name": "partnership program",
+      "category": "pr&team"
+    },
+    {
+      "id": "14",
+      "name": "product team",
+      "category": "pr&team"
+    },
+    {
+      "id": "15",
+      "name": "bisdev team",
+      "category": "pr&team"
+    },
+    {
+      "id": "16",
+      "name": "two factor authentication",
+      "category": "pr&team"
+    },
+    {
+      "id": "17",
+      "name": "ux and ui team",
+      "category": "pr&team"
+    },
+    {
+      "id": "18",
+      "name": "security team",
+      "category": "pr&team"
+    },
+    {
+      "id": "19",
+      "name": "qa team",
+      "category": "pr&team"
+    },
+    {
+      "id": "20",
+      "name": "antihacking shield",
+      "category": "pr&team"
+    },
+    {
+      "id": "21",
+      "name": "risk management team",
+      "category": "pr&team"
+    },
+    {
+      "id": "22",
+      "name": "security audition",
+      "category": "pr&team"
+    },
+    {
+      "id": "23",
+      "name": "anonymous transactions ban",
+      "category": "pr&team"
+    },
+    {
+      "id": "24",
+      "name": "blocking suspicious accounts",
+      "category": "pr&team"
+    },
+    {
+      "id": "25",
+      "name": "tokenomics expert",
+      "category": "pr&team"
+    },
+    {
+      "id": "26",
+      "name": "consensus explorer pass",
+      "category": "pr&team"
+    },
+    {
+      "id": "27",
+      "name": "vc labs",
+      "category": "pr&team"
+    },
+    {
+      "id": "28",
+      "name": "compliance officer",
+      "category": "pr&team"
+    },
+    {
+      "id": "29",
+      "name": "welcome to amsterdam",
+      "category": "pr&team"
+    },
+    {
+      "id": "30",
+      "name": "development hub mumbai",
+      "category": "pr&team"
+    },
+    {
+      "id": "31",
+      "name": "data center tokyo",
+      "category": "pr&team"
+    },
+    {
+      "id": "32",
+      "name": "leaderboards",
+      "category": "pr&team"
+    },
+    {
+      "id": "33",
+      "name": "minigame",
+      "category": "pr&team"
+    },
+    {
+      "id": "34",
+      "name": "fan tokens",
+      "category": "markets"
+    },
+    {
+      "id": "35",
+      "name": "staking",
+      "category": "markets"
+    },
+    {
+      "id": "36",
+      "name": "btc pairs",
+      "category": "markets"
+    },
+    {
+      "id": "37",
+      "name": "eth pairs",
+      "category": "markets"
+    },
+    {
+      "id": "38",
+      "name": "top 10 cmc pairs",
+      "category": "markets"
+    },
+    {
+      "id": "39",
+      "name": "gamefi tokens",
+      "category": "markets"
+    },
+    {
+      "id": "40",
+      "name": "defi2.0 tokens",
+      "category": "markets"
+    },
+    {
+      "id": "41",
+      "name": "socialfi tokens",
+      "category": "markets"
+    },
+    {
+      "id": "42",
+      "name": "meme coins",
+      "category": "markets"
+    },
+    {
+      "id": "43",
+      "name": "shit coins",
+      "category": "markets"
+    },
+    {
+      "id": "44",
+      "name": "margin trading x10",
+      "category": "markets"
+    },
+    {
+      "id": "45",
+      "name": "margin trading x20",
+      "category": "markets"
+    },
+    {
+      "id": "46",
+      "name": "margin trading x30",
+      "category": "markets"
+    },
+    {
+      "id": "47",
+      "name": "margin trading x50",
+      "category": "markets"
+    },
+    {
+      "id": "48",
+      "name": "margin trading x75",
+      "category": "markets"
+    },
+    {
+      "id": "49",
+      "name": "margin trading x100",
+      "category": "markets"
+    },
+    {
+      "id": "50",
+      "name": "derivatives",
+      "category": "markets"
+    },
+    {
+      "id": "51",
+      "name": "prediction markets",
+      "category": "markets"
+    },
+    {
+      "id": "52",
+      "name": "web3 integration",
+      "category": "markets"
+    },
+    {
+      "id": "53",
+      "name": "dao",
+      "category": "markets"
+    },
+    {
+      "id": "54",
+      "name": "p2p trading",
+      "category": "markets"
+    },
+    {
+      "id": "55",
+      "name": "trading bots",
+      "category": "markets"
+    },
+    {
+      "id": "56",
+      "name": "layerzero listing",
+      "category": "markets"
+    },
+    {
+      "id": "57",
+      "name": "kyc",
+      "category": "legal"
+    },
+    {
+      "id": "58",
+      "name": "kyb",
+      "category": "legal"
+    },
+    {
+      "id": "59",
+      "name": "legal opinion",
+      "category": "legal"
+    },
+    {
+      "id": "60",
+      "name": "sec transparency",
+      "category": "legal"
+    },
+    {
+      "id": "61",
+      "name": "anti money loundering",
+      "category": "legal"
+    },
+    {
+      "id": "62",
+      "name": "licence uae",
+      "category": "legal"
+    },
+    {
+      "id": "63",
+      "name": "licence europe",
+      "category": "legal"
+    },
+    {
+      "id": "64",
+      "name": "licence asia",
+      "category": "legal"
+    },
+    {
+      "id": "65",
+      "name": "licence south america",
+      "category": "legal"
+    },
+    {
+      "id": "66",
+      "name": "licence australia",
+      "category": "legal"
+    },
+    {
+      "id": "67",
+      "name": "licence north america",
+      "category": "legal"
+    },
+    {
+      "id": "68",
+      "name": "licence nigeria",
+      "category": "legal"
+    },
+    {
+      "id": "69",
+      "name": "licence japan",
+      "category": "legal"
+    },
+    {
+      "id": "70",
+      "name": "licence ethiopia",
+      "category": "legal"
+    },
+    {
+      "id": "71",
+      "name": "licence india",
+      "category": "legal"
+    },
+    {
+      "id": "72",
+      "name": "licence bangladesh",
+      "category": "legal"
+    },
+    {
+      "id": "73",
+      "name": "licence indonesia",
+      "category": "legal"
+    },
+    {
+      "id": "74",
+      "name": "licence vietnam",
+      "category": "legal"
+    },
+    {
+      "id": "75",
+      "name": "licence turkey",
+      "category": "legal"
+    },
+    {
+      "id": "76",
+      "name": "licence philippines",
+      "category": "legal"
+    },
+    {
+      "id": "77",
+      "name": "dex",
+      "category": "web3"
+    },
+    {
+      "id": "78",
+      "name": "oracle",
+      "category": "web3"
+    },
+    {
+      "id": "79",
+      "name": "vesting smartcontracts",
+      "category": "web3"
+    },
+    {
+      "id": "80",
+      "name": "launchpad",
+      "category": "web3"
+    },
+    {
+      "id": "81",
+      "name": "nft marketplace",
+      "category": "web3"
+    },
+    {
+      "id": "82",
+      "name": "grant for developers",
+      "category": "web3"
+    },
+    {
+      "id": "83",
+      "name": "nft metaverse",
+      "category": "web3"
+    },
+    {
+      "id": "84",
+      "name": "crypto farming",
+      "category": "web3"
+    },
+    {
+      "id": "85",
+      "name": "sport collectibles marketplace",
+      "category": "web3"
+    },
+    {
+      "id": "86",
+      "name": "market making",
+      "category": "web3"
+    },
+    {
+      "id": "87",
+      "name": "this is fine",
+      "category": "specials"
+    },
+    {
+      "id": "88",
+      "name": "ethereum birthday",
+      "category": "specials"
+    },
+    {
+      "id": "89",
+      "name": "carry it like it's hot",
+      "category": "specials"
+    },
+    {
+      "id": "90",
+      "name": "the water is clear",
+      "category": "specials"
+    },
+    {
+      "id": "91",
+      "name": "bitcoin conference 2024",
+      "category": "specials"
+    },
+    {
+      "id": "92",
+      "name": "kamala is calling",
+      "category": "specials"
+    },
+    {
+      "id": "93",
+      "name": "telegram stars integration",
+      "category": "specials"
+    },
+    {
+      "id": "94",
+      "name": "telegram miniapp launch",
+      "category": "specials"
+    },
+    {
+      "id": "95",
+      "name": "strategic session in australia",
+      "category": "specials"
+    },
+    {
+      "id": "96",
+      "name": "hamster analytics",
+      "category": "specials"
+    },
+    {
+      "id": "97",
+      "name": "50M telegram channel",
+      "category": "specials"
+    },
+    {
+      "id": "98",
+      "name": "fight fight fight",
+      "category": "specials"
+    },
+    {
+      "id": "99",
+      "name": "hamsterstore launch",
+      "category": "specials"
+    },
+    {
+      "id": "100",
+      "name": "hamsterwatch for soulmate",
+      "category": "specials"
+    },
+    {
+      "id": "101",
+      "name": "call for btc to rise",
+      "category": "specials"
+    },
+    {
+      "id": "102",
+      "name": "business jet",
+      "category": "specials"
+    },
+    {
+      "id": "103",
+      "name": "250m hamster players",
+      "category": "specials"
+    },
+    {
+      "id": "104",
+      "name": "percussion taps",
+      "category": "specials"
+    },
+    {
+      "id": "105",
+      "name": "cx hub istanbul",
+      "category": "specials"
+    },
+    {
+      "id": "106",
+      "name": "hamster break records",
+      "category": "specials"
+    },
+    {
+      "id": "107",
+      "name": "web3 game con",
+      "category": "specials"
+    },
+    {
+      "id": "108",
+      "name": "x network 10 million",
+      "category": "specials"
+    },
+    {
+      "id": "109",
+      "name": "hamster green energy",
+      "category": "specials"
+    },
+    {
+      "id": "110",
+      "name": "youtube 25 million",
+      "category": "specials"
+    },
+    {
+      "id": "111",
+      "name": "tg leaders",
+      "category": "specials"
+    },
+    {
+      "id": "112",
+      "name": "premarket launch",
+      "category": "specials"
+    },
+    {
+      "id": "113",
+      "name": "hamster kombat merch",
+      "category": "specials"
+    },
+    {
+      "id": "114",
+      "name": "ton + hamster kombat = success",
+      "category": "specials"
+    },
+    {
+      "id": "115",
+      "name": "consensus piranha pass",
+      "category": "specials"
+    },
+    {
+      "id": "116",
+      "name": "web3 academy launch",
+      "category": "specials"
+    },
+    {
+      "id": "117",
+      "name": "lambo for a hamster ceo",
+      "category": "specials"
+    },
+    {
+      "id": "118",
+      "name": "youtube gold button",
+      "category": "specials"
+    },
+    {
+      "id": "119",
+      "name": "hamster youtube channel",
+      "category": "specials"
+    },
+    {
+      "id": "120",
+      "name": "bitcoin pizza day",
+      "category": "specials"
+    },
+    {
+      "id": "121",
+      "name": "top 10 global ranking",
+      "category": "specials"
+    },
+    {
+      "id": "122",
+      "name": "nft collection launch",
+      "category": "specials"
+    },
+    {
+      "id": "123",
+      "name": "joe roogan podcast",
+      "category": "specials"
+    },
+    {
+      "id": "124",
+      "name": "dubai office",
+      "category": "specials"
+    },
+    {
+      "id": "125",
+      "name": "special hamster conference",
+      "category": "specials"
+    },
+    {
+      "id": "126",
+      "name": "short squeeze",
+      "category": "specials"
+    },
+    {
+      "id": "127",
+      "name": "there are two chairs...",
+      "category": "specials"
+    },
+    {
+      "id": "128",
+      "name": "villa for the dev team",
+      "category": "specials"
+    },
+    {
+      "id": "129",
+      "name": "apps center listing",
+      "category": "specials"
+    },
+    {
+      "id": "130",
+      "name": "bogdanoff is calling",
+      "category": "specials"
+    },
+    {
+      "id": "131",
+      "name": "usdt on ton",
+      "category": "specials"
+    },
+    {
+      "id": "132",
+      "name": "final england vs spain",
+      "category": "specials"
+    },
+    {
+      "id": "133",
+      "name": "semi-final england vs netherlands",
+      "category": "specials"
+    },
+    {
+      "id": "134",
+      "name": "semi-final spain vs france",
+      "category": "specials"
+    },
+    {
+      "id": "135",
+      "name": "only 4 best left",
+      "category": "specials"
+    },
+    {
+      "id": "136",
+      "name": "quarterfinals are coming",
+      "category": "specials"
+    },
+    {
+      "id": "137",
+      "name": "riyadh masters 2024",
+      "category": "specials"
+    },
+    {
+      "id": "138",
+      "name": "sports integration",
+      "category": "specials"
+    },
+    {
+      "id": "139",
+      "name": "hamsterbank",
+      "category": "specials"
+    },
+    {
+      "id": "140",
+      "name": "long squeeze",
+      "category": "specials"
+    }
+  ]
+}
