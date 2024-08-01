@@ -109,7 +109,7 @@ function Home() {
   useEffect(() => {
     async function fetchUpgrades() {
       try {
-        const res = await fetch("http://localhost:3200/upgrades");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/upgrades`);
         const data = await res.json();
 
         setUpgrades(data);

@@ -23,7 +23,7 @@ function AddUpgrade() {
     if (!name) return;
 
     try {
-      let res = await fetch("http://localhost:3200/upgrades");
+      let res = await fetch(`${import.meta.env.VITE_API_URL}/upgrades`);
       const allUpgrades = await res.json();
 
       if (allUpgrades.find((upgrade) => upgrade.name === name))
