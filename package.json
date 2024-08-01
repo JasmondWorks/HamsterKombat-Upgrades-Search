@@ -7,6 +7,7 @@
     "dev": "concurrently \"npm run json-server\" \"vite\"",
     "serve": "node server.js",
     "json-server": "json-server --watch db.json --port 3200",
+    "build": "npm run build",
     "start": "npm run build && npm run serve"
   },
   "dependencies": {
