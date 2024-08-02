@@ -4,11 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run json-server\" \"vite\"",
-    "serve": "node server.js",
-    "json-server": "json-server --watch db.json --port 3200",
-    "build": "npm run build",
-    "start": "npm run build && npm run serve"
+    "dev": "vite",
+    "build": "build"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -19,12 +16,10 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "json-server": "^1.0.0-beta.1",
     "vite": "^5.3.4"
   }
 }
