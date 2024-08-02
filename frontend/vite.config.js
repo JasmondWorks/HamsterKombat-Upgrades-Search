@@ -4,7 +4,10 @@ import react from "@vitejs/plugin-react";
 export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
-    base: mode === "production" ? "/your-production-base-url/" : "/",
+    base:
+      mode === "production"
+        ? "https://hamsterkombat-upgrades-search-5.onrender.com"
+        : "/",
     define: {
       __DEV__: mode === "development",
       __PROD__: mode === "production",
