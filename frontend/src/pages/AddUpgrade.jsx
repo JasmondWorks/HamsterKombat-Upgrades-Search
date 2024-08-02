@@ -46,7 +46,7 @@ function AddUpgrade() {
 
       const newUpgrade = { name, category, id: `${allUpgrades.length + 1}` };
 
-      res = await fetch("http://localhost:3200/upgrades", {
+      res = await fetch(`${import.meta.env.VITE_API_URL}/upgrades`, {
         // Adding method type
         method: "POST",
 
