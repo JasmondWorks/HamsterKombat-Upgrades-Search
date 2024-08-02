@@ -71,7 +71,7 @@ function Search({ setQuery, query }) {
       onSubmit={(e) => e.preventDefault()}
     >
       <div className="form-groups">
-        <div className="form-group">
+        <div className="form-group" style={{ textAlign: "center" }}>
           <label htmlFor="upgradeSearchBox">Search for an upgrade</label>
           <input
             value={query}
