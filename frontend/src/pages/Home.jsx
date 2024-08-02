@@ -88,7 +88,7 @@ function UpgradesList({ data, setSuccess }) {
           {el.name[0].toUpperCase() + el.name.slice(1)}
           <div className={`options ${selectedItem === el.id ? "active" : ""}`}>
             <button onClick={() => handleDeleteUpgrade(el)}>✖️</button>
-            <button>✏️</button>
+            <button style={{ pointerEvents: "none" }}>✏️</button>
           </div>
         </div>
       ))}
