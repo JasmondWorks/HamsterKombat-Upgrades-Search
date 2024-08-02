@@ -29,11 +29,14 @@ function AddUpgrade() {
     try {
       let res = await fetch(`${import.meta.env.VITE_API_URL}/upgrades`);
       const allUpgrades = await res.json();
-
-      errors[0] = allUpgrades.find(
+      const existingUpgrade = allUpgrades.find(
         (upgrade) => upgrade.name === name.toLowerCase()
-      )
-        ? "Upgrade already exists!"
+      );
+      errors[0] = existingUpgrade
+        ? `Upgrade already exists in ${
+            existingUpgrade.category[0].toUpperCase() +
+            existingUpgrade.category.slice(1)
+          } category!`
         : "";
       errors[1] = pin !== PIN ? "Incorrect pin!" : "";
 
