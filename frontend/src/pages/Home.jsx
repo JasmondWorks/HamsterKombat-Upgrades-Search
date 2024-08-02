@@ -48,7 +48,7 @@ function UpgradesList({ data, setSuccess }) {
     const proceed = confirm(
       `Proceed with deletion of ${item.name} from ${item.category}?`
     );
-    const pin = prompt("Pin: ");
+    const pin = proceed && prompt("Pin: ");
 
     if (!proceed || pin !== "1102") return;
 
