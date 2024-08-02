@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
       sourcemap: mode === "development",
     },
     server: {
-      port: 3000,
+      port: 3200,
     },
   };
 });
