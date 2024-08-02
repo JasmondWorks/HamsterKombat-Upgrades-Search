@@ -145,3 +145,36 @@ button {
   padding: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
+.options-wrapper {
+  position: relative;
+  overflow-x: hidden;
+}
+.options {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translate(calc(100% + 20px), -50%);
+  -webkit-transform: ;
+  -moz-transform: ;
+  -ms-transform: ;
+  -o-transform: ;
+  display: flex;
+  gap: 0.5rem;
+  transition: transform 350ms ease;
+  -webkit-transition: transform 350ms ease;
+  -moz-transition: transform 350ms ease;
+  -ms-transition: transform 350ms ease;
+  -o-transition: transform 350ms ease;
+}
+.options.active {
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+}
+.options button {
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  border: none;
+}

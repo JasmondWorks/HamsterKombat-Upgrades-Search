@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import Message from "../Message";
 
 function Tabs({ selectedTab, upgrades, setSelectedTab }) {
   const tabs = [...new Set(upgrades.map((upgrade) => upgrade.category))];
@@ -38,8 +39,29 @@ function Tabs({ selectedTab, upgrades, setSelectedTab }) {
     </div>
   );
 }
-function UpgradesList({ data }) {
+function UpgradesList({ data, setSuccess }) {
+  const [selectedItem, setSelectedItem] = useState(null);
+
   if (!data) return;
+
+  async function handleDeleteUpgrade(item) {
+    const proceed = confirm(
+      `Proceed with deletion of ${item.name} from ${item.category}?`
+    );
+    const pin = prompt("Pin: ");
+
+    if (!proceed || pin !== "1102") return;
+
+    try {
+      await fetch(`${import.meta.env.VITE_API_URL}/upgrades/${item.id}`, {
+        method: "DELETE",
+      });
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setSuccess(`Successfully deleted ${item.name} from ${item.category}`);
+    }
+  }
 
   return (
     <div
@@ -54,10 +76,20 @@ function UpgradesList({ data }) {
     >
       {data.map((el) => (
         <div
-          style={{ padding: "1rem", border: "1px solid rgba(0, 0, 0, .15)" }}
+          className="options-wrapper"
+          onClick={() => setSelectedItem(el.id)}
+          style={{
+            padding: "1rem",
+            border: "1px solid rgba(0, 0, 0, .15)",
+            cursor: "pointer",
+          }}
           key={el.name}
         >
           {el.name[0].toUpperCase() + el.name.slice(1)}
+          <div className={`options ${selectedItem === el.id ? "active" : ""}`}>
+            <button onClick={() => handleDeleteUpgrade(el)}>✖️</button>
+            <button>✏️</button>
+          </div>
         </div>
       ))}
     </div>
@@ -92,6 +124,9 @@ function Home() {
   const [query, setQuery] = useState("");
   const [selectedTab, setSelectedTab] = useState("pr&team");
   const [isLoading, setIsLoading] = useState(true);
+  const [success, setSuccess] = useState("");
+
+  console.log(success);
 
   let filteredUpgrades = upgrades.filter((upgrade) =>
     upgrade.name.includes(query.toLowerCase())
@@ -121,7 +156,7 @@ function Home() {
     }
 
     fetchUpgrades();
-  }, []);
+  }, [success]);
 
   function handleSearch() {
     upgrades.filter((upgrade) => upgrade.name.includes(query.toLowerCase()));
@@ -131,6 +166,7 @@ function Home() {
 
   return (
     <div>
+      {success && <Message variant="success" text={success} />}
       <h1
         style={{ marginTop: "5rem", marginBottom: "2rem", textAlign: "center" }}
       >
@@ -156,7 +192,7 @@ function Home() {
       {query && !categorizedUpgrades ? (
         <h3 style={{ textAlign: "center" }}>Could not match your search!</h3>
       ) : (
-        <UpgradesList data={categorizedUpgrades} />
+        <UpgradesList data={categorizedUpgrades} setSuccess={setSuccess} />
       )}
     </div>
   );
