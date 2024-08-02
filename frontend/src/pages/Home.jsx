@@ -62,6 +62,24 @@ function UpgradesList({ data, setSuccess }) {
       setSuccess(`Successfully deleted ${item.name} from ${item.category}`);
     }
   }
+  async function handleEditUpgrade(item) {
+    const proceed = confirm(
+      `Proceed with deletion of ${item.name} from ${item.category}?`
+    );
+    const pin = proceed && prompt("Pin: ");
+
+    if (!proceed || pin !== "1102") return;
+
+    try {
+      await fetch(`${import.meta.env.VITE_API_URL}/upgrades/${item.id}`, {
+        method: "DELETE",
+      });
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setSuccess(`Successfully deleted ${item.name} from ${item.category}`);
+    }
+  }
 
   return (
     <div
@@ -87,8 +105,8 @@ function UpgradesList({ data, setSuccess }) {
         >
           {el.name[0].toUpperCase() + el.name.slice(1)}
           <div className={`options ${selectedItem === el.id ? "active" : ""}`}>
-            <button onClick={() => handleDeleteUpgrade(el)}>✖️</button>
-            <button style={{ pointerEvents: "none" }}>✏️</button>
+            <button onClick={() => handleDeleteUpgrade(el)}>❌</button>
+            {/* <button onClick={() => handleEditUpgrade(el)}>✏️</button> */}
           </div>
         </div>
       ))}
