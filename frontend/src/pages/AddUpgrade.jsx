@@ -4,12 +4,14 @@ import Message from "../Message";
 import { useNavigate } from "react-router-dom";
 
 const categories = ["pr&team", "markets", "legal", "web3", "specials"];
+const PIN = "1102";
 
 function AddUpgrade() {
   const [name, setName] = useState("");
   const [category, setCategory] = useState(categories[4]);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [pin, setPin] = useState("");
 
   const navigate = useNavigate();
 
@@ -20,18 +22,26 @@ function AddUpgrade() {
     setError("");
     setSuccess("");
 
-    if (!name) return;
+    let errors = [];
+
+    if (!name || !pin) return;
 
     try {
       let res = await fetch(`${import.meta.env.VITE_API_URL}/upgrades`);
       const allUpgrades = await res.json();
 
-      if (allUpgrades.find((upgrade) => upgrade.name === name))
-        throw new Error("Upgrade already exists!");
+      errors[0] = allUpgrades.find(
+        (upgrade) => upgrade.name === name.toLowerCase()
+      )
+        ? "Upgrade already exists!"
+        : "";
+      errors[1] = pin !== PIN ? "Incorrect pin!" : "";
+
+      if (errors[0] || errors[1]) throw new Error(errors.join("\n"));
 
       console.log(category);
 
-      const newUpgrade = { name, category, id: allUpgrades.length + 1 };
+      const newUpgrade = { name, category, id: `${allUpgrades.length + 1}` };
 
       res = await fetch("http://localhost:3200/upgrades", {
         // Adding method type
@@ -56,7 +66,6 @@ function AddUpgrade() {
     }
   }
 
-  useEffect(() => {}, []);
   return (
     <div>
       <form className="form box" onSubmit={postUpgrade}>
@@ -83,6 +92,17 @@ function AddUpgrade() {
                 </option>
               ))}
             </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Pin</label>
+            <input
+              value={pin}
+              onChange={(e) => setPin(e.target.value)}
+              type="password"
+              placeholder="****"
+              maxLength={4}
+              id="password"
+            />
           </div>
         </div>
         <div className="btn-wrapper" style={{ textAlign: "right" }}>
