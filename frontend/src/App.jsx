@@ -6,7 +6,7 @@ import NavBar from "./NavBar";
 function App() {
   return (
     <Router>
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add" element={<AddUpgrade />} />
