@@ -7,7 +7,7 @@ const PIN = "1102";
 
 function AddUpgrade() {
   const [name, setName] = useState("");
-  const [category, setCategory] = useState(categories[4]);
+  const [category, setCategory] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [pin, setPin] = useState("");
@@ -22,7 +22,7 @@ function AddUpgrade() {
 
     let errors = [];
 
-    if (!name || !pin) return;
+    if (!name || !pin || !category) return;
 
     try {
       let res = await fetch(`${import.meta.env.VITE_API_URL}/upgrades`);
@@ -89,6 +89,7 @@ function AddUpgrade() {
               onChange={(e) => setCategory(e.target.value)}
               value={category}
             >
+              <option value="">Choose a category</option>
               {categories.map((cat) => (
                 <option key={cat} value={cat}>
                   {cat[0].toUpperCase() + cat.slice(1)}
