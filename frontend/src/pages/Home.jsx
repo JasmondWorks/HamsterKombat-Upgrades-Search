@@ -77,7 +77,7 @@ function UpgradesList({ data, setSuccess }) {
       {data.map((el) => (
         <div
           className="options-wrapper"
-          onClick={() => setSelectedItem(el.id)}
+          onClick={() => setSelectedItem(selectedItem === el.id ? null : el.id)}
           style={{
             padding: "1rem",
             border: "1px solid rgba(0, 0, 0, .15)",
