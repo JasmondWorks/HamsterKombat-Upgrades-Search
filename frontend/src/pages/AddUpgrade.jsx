@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import Message from "../Message";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +16,6 @@ function AddUpgrade() {
 
   async function postUpgrade(e) {
     e.preventDefault();
-    // Check if upgrade already exists
 
     setError("");
     setSuccess("");
@@ -29,6 +27,8 @@ function AddUpgrade() {
     try {
       let res = await fetch(`${import.meta.env.VITE_API_URL}/upgrades`);
       const allUpgrades = await res.json();
+
+      // Check if upgrade already exists
       const existingUpgrade = allUpgrades.find(
         (upgrade) => upgrade.name === name.toLowerCase()
       );

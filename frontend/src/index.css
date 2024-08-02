@@ -85,9 +85,12 @@ button {
 }
 
 .message {
+  margin: 0;
   position: fixed;
   max-width: 900px;
   top: 10px;
+  left: 10px;
+  right: 10px;
   animation: dropIn 3500ms ease forwards;
   -webkit-animation: dropIn 3500ms ease forwards;
   padding: 1rem;
