@@ -163,7 +163,8 @@
     {
       "id": "33",
       "name": "minigame",
-      "category": "pr&team"
+      "category": "pr&team",
+      "addedAt": "2024-07-23T08:38:42.629Z"
     },
     {
       "id": "34",
@@ -408,12 +409,14 @@
     {
       "id": "82",
       "name": "grant for developers",
-      "category": "web3"
+      "category": "web3",
+      "addedAt": "2024-07-28T08:38:42.629Z"
     },
     {
       "id": "83",
       "name": "nft metaverse",
-      "category": "web3"
+      "category": "web3",
+      "addedAt": "2024-07-39T08:38:42.629Z"
     },
     {
       "id": "84",
@@ -423,7 +426,8 @@
     {
       "id": "85",
       "name": "sport collectibles marketplace",
-      "category": "web3"
+      "category": "web3",
+      "addedAt": "2024-07-31T08:38:42.629Z"
     },
     {
       "id": "86",
@@ -433,7 +437,8 @@
     {
       "id": "87",
       "name": "this is fine",
-      "category": "specials"
+      "category": "specials",
+      "addedAt": "2024-08-02T08:38:42.629Z"
     },
     {
       "id": "88",
@@ -453,7 +458,8 @@
     {
       "id": "91",
       "name": "bitcoin conference 2024",
-      "category": "specials"
+      "category": "specials",
+      "addedAt": "2024-07-25T08:38:42.629Z"
     },
     {
       "id": "92",
@@ -463,17 +469,20 @@
     {
       "id": "93",
       "name": "telegram stars integration",
-      "category": "specials"
+      "category": "specials",
+      "addedAt": "2024-07-25T08:38:42.629Z"
     },
     {
       "id": "94",
       "name": "telegram miniapp launch",
-      "category": "specials"
+      "category": "specials",
+      "addedAt": "2024-07-24T08:38:42.629Z"
     },
     {
       "id": "95",
       "name": "strategic session in australia",
-      "category": "specials"
+      "category": "specials",
+      "addedAt": "2024-07-20T08:38:42.629Z"
     },
     {
       "id": "96",
@@ -700,13 +709,19 @@
       "id": "140",
       "name": "long squeeze",
       "category": "specials",
-      "addedAt": "2024-08-02T08:27:15.819Z"
+      "addedAt": "2024-06-02T08:27:15.819Z"
     },
     {
       "name": "games in paris",
       "category": "specials",
       "id": "141",
       "addedAt": "2024-08-03T08:38:42.629Z"
+    },
+    {
+      "name": "web3 advertising platform",
+      "category": "web3",
+      "id": "142",
+      "addedAt": "2024-08-02T08:38:42.629Z"
     }
   ]
 }

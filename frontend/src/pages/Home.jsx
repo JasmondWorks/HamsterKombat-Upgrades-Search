@@ -150,27 +150,13 @@ function formatDateFromISOString(isoString, options) {
   // Format the date
   return dateObject.toLocaleDateString(undefined, formatOptions);
 }
-
-// Example usage:
-const isoString = "2024-08-02T12:34:56.789Z";
-
-// Format the date with default options
-// console.log(formatDateFromISOString(isoString)); // Outputs something like "August 2, 2024"
-
-// Custom format options
-const customOptions = {
-  weekday: "long",
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-};
-// console.log(formatDateFromISOString(isoString, customOptions)); // Outputs something like "Friday, Aug 2, 2024"
-
-// Another custom format
-const timeOptions = { hour: "numeric", minute: "numeric", second: "numeric" };
-// console.log(formatDateFromISOString(isoString, timeOptions)); // Outputs something like "12:34:56 PM"
-
-// Function to filter items based on dates within the last week
+function sortItemsByDateDescending(items) {
+  return items.sort((a, b) => {
+    const dateA = new Date(a.addedAt);
+    const dateB = new Date(b.addedAt);
+    return dateB - dateA; // Compare in descending order
+  });
+}
 function filterItemsFromLastWeek(items) {
   // Get the current date
   const currentDate = new Date();
@@ -185,22 +171,16 @@ function filterItemsFromLastWeek(items) {
   });
 }
 
-// Example usage:
-const items = [
-  { id: 1, date: "2024-08-01T12:34:56.789Z" },
-  { id: 2, date: "2024-07-29T09:12:34.567Z" },
-  { id: 3, date: "2024-07-25T08:45:23.456Z" },
-  { id: 4, date: "2024-07-20T14:23:12.345Z" },
-];
+// Custom format options
+const customOptions = {
+  weekday: "long",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+};
 
-const filteredItems = filterItemsFromLastWeek(items);
-
-// console.log(filteredItems);
-// Outputs items with dates within the last week, such as:
-// [
-//   { id: 1, date: "2024-08-01T12:34:56.789Z" },
-//   { id: 2, date: "2024-07-29T09:12:34.567Z" }
-// ]
+// Another custom format
+const timeOptions = { hour: "numeric", minute: "numeric", second: "numeric" };
 
 function Home() {
   const [upgrades, setUpgrades] = useState([]);
@@ -261,26 +241,30 @@ function Home() {
             paddingLeft: 0,
           }}
         >
-          {filterItemsFromLastWeek(upgrades).map((el) => (
-            <li
-              key={el.id}
-              className="box"
-              style={{ display: "flex", flexDirection: "column" }}
-            >
-              <span>{el.category[0].toUpperCase() + el.category.slice(1)}</span>
-              <span>
-                <strong>{el.name[0].toUpperCase() + el.name.slice(1)}</strong>
-              </span>
-              {el.addedAt && (
-                <span style={{ marginTop: ".75rem" }}>
-                  <small>
-                    Added on:{" "}
-                    {formatDateFromISOString(el.addedAt, customOptions)}
-                  </small>
+          {sortItemsByDateDescending(filterItemsFromLastWeek(upgrades)).map(
+            (el) => (
+              <li
+                key={el.id}
+                className="box"
+                style={{ display: "flex", flexDirection: "column" }}
+              >
+                <span>
+                  {el.category[0].toUpperCase() + el.category.slice(1)}
                 </span>
-              )}
-            </li>
-          ))}
+                <span>
+                  <strong>{el.name[0].toUpperCase() + el.name.slice(1)}</strong>
+                </span>
+                {el.addedAt && (
+                  <span style={{ marginTop: ".75rem" }}>
+                    <small>
+                      Added on:{" "}
+                      {formatDateFromISOString(el.addedAt, customOptions)}
+                    </small>
+                  </span>
+                )}
+              </li>
+            )
+          )}
         </ul>
       </div>
       <h1
