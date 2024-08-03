@@ -240,7 +240,7 @@ function Home() {
         style={{
           marginBlock: "2em",
           textAlign: "center",
-          fontSize: "clamp(2.5rem, 2.5vw + .75rem, 3.5rem)",
+          fontSize: "clamp(2.5rem, 2.5vw + .75rem, 3rem)",
         }}
       >
         Upgrades Search Tool
