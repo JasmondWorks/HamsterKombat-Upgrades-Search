@@ -10,6 +10,7 @@ function NavBar() {
         gap: "1.5rem",
         listStyle: "none",
         paddingLeft: "0",
+        marginBottom: "2rem",
       }}
     >
       <li>
