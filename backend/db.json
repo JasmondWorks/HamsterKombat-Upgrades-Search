@@ -693,12 +693,20 @@
     {
       "id": "139",
       "name": "hamsterbank",
-      "category": "specials"
+      "category": "specials",
+      "addedAt": "2024-08-02T08:27:15.819Z"
     },
     {
       "id": "140",
       "name": "long squeeze",
-      "category": "specials"
+      "category": "specials",
+      "addedAt": "2024-08-02T08:27:15.819Z"
+    },
+    {
+      "name": "games in paris",
+      "category": "specials",
+      "id": "141",
+      "addedAt": "2024-08-03T08:38:42.629Z"
     }
   ]
 }

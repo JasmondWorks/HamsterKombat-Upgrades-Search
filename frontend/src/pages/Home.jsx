@@ -137,6 +137,71 @@ function Search({ setQuery, query }) {
     </form>
   );
 }
+function formatDateFromISOString(isoString, options) {
+  // Convert the ISO string to a Date object
+  const dateObject = new Date(isoString);
+
+  // Default options if none are provided
+  const defaultOptions = { year: "numeric", month: "long", day: "numeric" };
+
+  // Use the provided options or fallback to default options
+  const formatOptions = options || defaultOptions;
+
+  // Format the date
+  return dateObject.toLocaleDateString(undefined, formatOptions);
+}
+
+// Example usage:
+const isoString = "2024-08-02T12:34:56.789Z";
+
+// Format the date with default options
+// console.log(formatDateFromISOString(isoString)); // Outputs something like "August 2, 2024"
+
+// Custom format options
+const customOptions = {
+  weekday: "long",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+};
+// console.log(formatDateFromISOString(isoString, customOptions)); // Outputs something like "Friday, Aug 2, 2024"
+
+// Another custom format
+const timeOptions = { hour: "numeric", minute: "numeric", second: "numeric" };
+// console.log(formatDateFromISOString(isoString, timeOptions)); // Outputs something like "12:34:56 PM"
+
+// Function to filter items based on dates within the last week
+function filterItemsFromLastWeek(items) {
+  // Get the current date
+  const currentDate = new Date();
+
+  // Calculate the date one week ago
+  const oneWeekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+  // Filter the items
+  return items.filter((item) => {
+    const itemDate = new Date(item.addedAt);
+    return itemDate >= oneWeekAgo && itemDate <= currentDate;
+  });
+}
+
+// Example usage:
+const items = [
+  { id: 1, date: "2024-08-01T12:34:56.789Z" },
+  { id: 2, date: "2024-07-29T09:12:34.567Z" },
+  { id: 3, date: "2024-07-25T08:45:23.456Z" },
+  { id: 4, date: "2024-07-20T14:23:12.345Z" },
+];
+
+const filteredItems = filterItemsFromLastWeek(items);
+
+// console.log(filteredItems);
+// Outputs items with dates within the last week, such as:
+// [
+//   { id: 1, date: "2024-08-01T12:34:56.789Z" },
+//   { id: 2, date: "2024-07-29T09:12:34.567Z" }
+// ]
+
 function Home() {
   const [upgrades, setUpgrades] = useState([]);
   const [query, setQuery] = useState("");
@@ -144,7 +209,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [success, setSuccess] = useState("");
 
-  console.log(success);
+  console.log(filterItemsFromLastWeek(upgrades));
 
   let filteredUpgrades = upgrades.filter((upgrade) =>
     upgrade.name.includes(query.toLowerCase())
@@ -185,6 +250,39 @@ function Home() {
   return (
     <div>
       {success && <Message variant="success" text={success} />}
+      <div style={{ marginTop: "3.5rem" }}>
+        <h3>Just added</h3>
+        <ul
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gap: "1rem",
+            listStyle: "none",
+            paddingLeft: 0,
+          }}
+        >
+          {filterItemsFromLastWeek(upgrades).map((el) => (
+            <li
+              key={el.id}
+              className="box"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <span>{el.category[0].toUpperCase() + el.category.slice(1)}</span>
+              <span>
+                <strong>{el.name[0].toUpperCase() + el.name.slice(1)}</strong>
+              </span>
+              {el.addedAt && (
+                <span style={{ marginTop: ".75rem" }}>
+                  <small>
+                    Added on:{" "}
+                    {formatDateFromISOString(el.addedAt, customOptions)}
+                  </small>
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
       <h1
         style={{ marginTop: "5rem", marginBottom: "2rem", textAlign: "center" }}
       >

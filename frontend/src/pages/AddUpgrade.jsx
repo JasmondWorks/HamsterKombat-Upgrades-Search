@@ -44,7 +44,12 @@ function AddUpgrade() {
 
       console.log(category);
 
-      const newUpgrade = { name, category, id: `${allUpgrades.length + 1}` };
+      const newUpgrade = {
+        name,
+        category,
+        id: `${allUpgrades.length + 1}`,
+        addedAt: new Date().toISOString(),
+      };
 
       res = await fetch(`${import.meta.env.VITE_API_URL}/upgrades`, {
         // Adding method type
