@@ -240,6 +240,11 @@ function Home() {
 
   return (
     <div>
+      <h1
+        style={{ marginTop: "5rem", marginBottom: "2rem", textAlign: "center" }}
+      >
+        Upgrades Search Tool
+      </h1>
       {success && <Message variant="success" text={success} />}
       <JustAdded upgrades={upgrades} />
       <div
