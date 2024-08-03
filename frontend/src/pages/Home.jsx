@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Message from "../Message";
+import {
+  customOptions,
+  filterItemsFromLastWeek,
+  formatDateFromISOString,
+  sortItemsByDateDescending,
+} from "../utils";
 
 function Tabs({ selectedTab, upgrades, setSelectedTab }) {
   const tabs = [...new Set(upgrades.map((upgrade) => upgrade.category))];
@@ -122,9 +128,10 @@ function Search({ setQuery, query }) {
     >
       <div className="form-groups">
         <div className="form-group" style={{ textAlign: "center" }}>
-          <label htmlFor="upgradeSearchBox">Search for an upgrade</label>
+          {/* <label htmlFor="upgradeSearchBox">Search for an upgrade</label> */}
           <input
             value={query}
+            placeholder="Search for an upgrade"
             onChange={(e) => {
               console.log("Searching...");
               setQuery(e.target.value);
@@ -137,50 +144,50 @@ function Search({ setQuery, query }) {
     </form>
   );
 }
-function formatDateFromISOString(isoString, options) {
-  // Convert the ISO string to a Date object
-  const dateObject = new Date(isoString);
 
-  // Default options if none are provided
-  const defaultOptions = { year: "numeric", month: "long", day: "numeric" };
-
-  // Use the provided options or fallback to default options
-  const formatOptions = options || defaultOptions;
-
-  // Format the date
-  return dateObject.toLocaleDateString(undefined, formatOptions);
+function JustAdded({ upgrades }) {
+  return (
+    <div style={{ marginTop: "3.5rem" }}>
+      <h3>Just added</h3>
+      <ul
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: "1rem",
+          listStyle: "none",
+          paddingLeft: 0,
+        }}
+      >
+        {sortItemsByDateDescending(filterItemsFromLastWeek(upgrades)).map(
+          (el) => (
+            <li
+              key={el.id}
+              className="box"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: ".15rem",
+              }}
+            >
+              <span>{el.category[0].toUpperCase() + el.category.slice(1)}</span>
+              <span>
+                <strong>{el.name[0].toUpperCase() + el.name.slice(1)}</strong>
+              </span>
+              {el.addedAt && (
+                <span style={{ marginTop: ".35rem" }}>
+                  <small>
+                    Added on:{" "}
+                    {formatDateFromISOString(el.addedAt, customOptions)}
+                  </small>
+                </span>
+              )}
+            </li>
+          )
+        )}
+      </ul>
+    </div>
+  );
 }
-function sortItemsByDateDescending(items) {
-  return items.sort((a, b) => {
-    const dateA = new Date(a.addedAt);
-    const dateB = new Date(b.addedAt);
-    return dateB - dateA; // Compare in descending order
-  });
-}
-function filterItemsFromLastWeek(items) {
-  // Get the current date
-  const currentDate = new Date();
-
-  // Calculate the date one week ago
-  const oneWeekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
-
-  // Filter the items
-  return items.filter((item) => {
-    const itemDate = new Date(item.addedAt);
-    return itemDate >= oneWeekAgo && itemDate <= currentDate;
-  });
-}
-
-// Custom format options
-const customOptions = {
-  weekday: "long",
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-};
-
-// Another custom format
-const timeOptions = { hour: "numeric", minute: "numeric", second: "numeric" };
 
 function Home() {
   const [upgrades, setUpgrades] = useState([]);
@@ -188,8 +195,6 @@ function Home() {
   const [selectedTab, setSelectedTab] = useState("pr&team");
   const [isLoading, setIsLoading] = useState(true);
   const [success, setSuccess] = useState("");
-
-  console.log(filterItemsFromLastWeek(upgrades));
 
   let filteredUpgrades = upgrades.filter((upgrade) =>
     upgrade.name.includes(query.toLowerCase())
@@ -219,6 +224,12 @@ function Home() {
     }
 
     fetchUpgrades();
+
+    setTimeout(function () {
+      setSuccess("");
+    }, 4000);
+
+    return function () {};
   }, [success]);
 
   function handleSearch() {
@@ -230,52 +241,7 @@ function Home() {
   return (
     <div>
       {success && <Message variant="success" text={success} />}
-      <div style={{ marginTop: "3.5rem" }}>
-        <h3>Just added</h3>
-        <ul
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gap: "1rem",
-            listStyle: "none",
-            paddingLeft: 0,
-          }}
-        >
-          {sortItemsByDateDescending(filterItemsFromLastWeek(upgrades)).map(
-            (el) => (
-              <li
-                key={el.id}
-                className="box"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: ".15rem",
-                }}
-              >
-                <span>
-                  {el.category[0].toUpperCase() + el.category.slice(1)}
-                </span>
-                <span>
-                  <strong>{el.name[0].toUpperCase() + el.name.slice(1)}</strong>
-                </span>
-                {el.addedAt && (
-                  <span style={{ marginTop: ".35rem" }}>
-                    <small>
-                      Added on:{" "}
-                      {formatDateFromISOString(el.addedAt, customOptions)}
-                    </small>
-                  </span>
-                )}
-              </li>
-            )
-          )}
-        </ul>
-      </div>
-      <h1
-        style={{ marginTop: "5rem", marginBottom: "2rem", textAlign: "center" }}
-      >
-        Upgrades Search Tool
-      </h1>
+      <JustAdded upgrades={upgrades} />
       <div
         style={{
           display: "flex",

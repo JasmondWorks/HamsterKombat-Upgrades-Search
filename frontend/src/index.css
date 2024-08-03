@@ -154,10 +154,10 @@ button {
   right: 10px;
   top: 50%;
   transform: translate(calc(100% + 20px), -50%);
-  -webkit-transform: ;
-  -moz-transform: ;
-  -ms-transform: ;
-  -o-transform: ;
+  -webkit-transform: translate(calc(100% + 20px), -50%);
+  -moz-transform: translate(calc(100% + 20px), -50%);
+  -ms-transform: translate(calc(100% + 20px), -50%);
+  -o-transform: translate(calc(100% + 20px), -50%);
   display: flex;
   gap: 0.5rem;
   transition: transform 350ms ease;
