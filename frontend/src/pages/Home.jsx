@@ -237,7 +237,11 @@ function Home() {
   return (
     <div>
       <h1
-        style={{ marginTop: "5rem", marginBottom: "2rem", textAlign: "center" }}
+        style={{
+          marginBlock: "7rem",
+          textAlign: "center",
+          fontSize: "clamp(2.25rem, 2.5vw + .75rem, 3.5rem)",
+        }}
       >
         Upgrades Search Tool
       </h1>
