@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 
-function Message({ variant = "success", text }) {
-  return <p className={`message ${variant}`}>{text}</p>;
+function Message({ variant = "success", text, ref }) {
+  return (
+    <p className={`message ${variant}`} ref={ref}>
+      {text}
+    </p>
+  );
 }
 
 export default Message;

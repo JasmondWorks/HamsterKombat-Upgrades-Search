@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
 import Message from "../Message";
 import {
@@ -62,6 +62,7 @@ function UpgradesList({ data, setSuccess }) {
       await fetch(`${import.meta.env.VITE_API_URL}/upgrades/${item.id}`, {
         method: "DELETE",
       });
+      setSuccess("");
     } catch (err) {
       console.log(err.message);
     } finally {
@@ -195,6 +196,7 @@ function Home() {
   const [selectedTab, setSelectedTab] = useState("pr&team");
   const [isLoading, setIsLoading] = useState(true);
   const [success, setSuccess] = useState("");
+  // const messageRef = useRef(null);
 
   let filteredUpgrades = upgrades.filter((upgrade) =>
     upgrade.name.includes(query.toLowerCase())
@@ -229,7 +231,14 @@ function Home() {
       setSuccess("");
     }, 4000);
 
-    return function () {};
+    // const messageEl = messageRef.current;
+    // if (messageEl) {
+    //   messageEl.addEventListener("animationend", function () {
+    //     setSuccess("");
+    //   });
+    // }
+
+    // return function () {};
   }, [success]);
 
   function handleSearch() {
