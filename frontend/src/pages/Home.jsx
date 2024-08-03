@@ -150,7 +150,7 @@ function Search({ setQuery, query }) {
 function JustAdded({ upgrades }) {
   return (
     <div style={{ marginTop: "3.5rem" }}>
-      <h3>Just added</h3>
+      <h2>Just added</h2>
       <ul
         style={{
           display: "grid",
