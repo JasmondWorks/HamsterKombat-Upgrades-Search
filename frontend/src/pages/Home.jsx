@@ -238,9 +238,9 @@ function Home() {
     <div>
       <h1
         style={{
-          marginBlock: "7rem",
+          marginBlock: "2em",
           textAlign: "center",
-          fontSize: "clamp(2.25rem, 2.5vw + .75rem, 3.5rem)",
+          fontSize: "clamp(2.5rem, 2.5vw + .75rem, 3.5rem)",
         }}
       >
         Upgrades Search Tool
