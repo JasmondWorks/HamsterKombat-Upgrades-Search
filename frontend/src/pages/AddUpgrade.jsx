@@ -45,7 +45,7 @@ function AddUpgrade() {
       console.log(category);
 
       const newUpgrade = {
-        name,
+        name: name.toLowerCase(),
         category,
         id: `${allUpgrades.length + 1}`,
         addedAt: new Date().toISOString(),
