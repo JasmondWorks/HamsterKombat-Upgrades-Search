@@ -4,11 +4,12 @@ import styles from "./NavBar.module.css";
 function NavBar() {
   return (
     <ul
-      className="box"
+      className=""
       style={{
         display: "flex",
         gap: "1.5rem",
         listStyle: "none",
+        paddingLeft: "0",
       }}
     >
       <li>
