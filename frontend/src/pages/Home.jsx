@@ -51,10 +51,12 @@ function UpgradesList({ data, setSuccess }) {
   if (!data) return;
 
   async function handleDeleteUpgrade(item) {
+    setSuccess("");
+
     const proceed = confirm(
       `Proceed with deletion of ${item.name} from ${item.category}?`
     );
-    const pin = proceed && prompt("Pin: ");
+    const pin = proceed && prompt("Pi`n: ");
 
     if (!proceed || pin !== "1102") return;
 
@@ -62,7 +64,6 @@ function UpgradesList({ data, setSuccess }) {
       await fetch(`${import.meta.env.VITE_API_URL}/upgrades/${item.id}`, {
         method: "DELETE",
       });
-      setSuccess("");
     } catch (err) {
       console.log(err.message);
     } finally {
@@ -196,7 +197,6 @@ function Home() {
   const [selectedTab, setSelectedTab] = useState("pr&team");
   const [isLoading, setIsLoading] = useState(true);
   const [success, setSuccess] = useState("");
-  // const messageRef = useRef(null);
 
   let filteredUpgrades = upgrades.filter((upgrade) =>
     upgrade.name.includes(query.toLowerCase())
@@ -226,19 +226,6 @@ function Home() {
     }
 
     fetchUpgrades();
-
-    setTimeout(function () {
-      setSuccess("");
-    }, 4000);
-
-    // const messageEl = messageRef.current;
-    // if (messageEl) {
-    //   messageEl.addEventListener("animationend", function () {
-    //     setSuccess("");
-    //   });
-    // }
-
-    // return function () {};
   }, [success]);
 
   function handleSearch() {
