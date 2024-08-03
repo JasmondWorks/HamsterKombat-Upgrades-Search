@@ -246,7 +246,11 @@ function Home() {
               <li
                 key={el.id}
                 className="box"
-                style={{ display: "flex", flexDirection: "column" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: ".15rem",
+                }}
               >
                 <span>
                   {el.category[0].toUpperCase() + el.category.slice(1)}
@@ -255,7 +259,7 @@ function Home() {
                   <strong>{el.name[0].toUpperCase() + el.name.slice(1)}</strong>
                 </span>
                 {el.addedAt && (
-                  <span style={{ marginTop: ".75rem" }}>
+                  <span style={{ marginTop: ".35rem" }}>
                     <small>
                       Added on:{" "}
                       {formatDateFromISOString(el.addedAt, customOptions)}
